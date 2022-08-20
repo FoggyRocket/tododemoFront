@@ -1,6 +1,6 @@
 import {  Form,Modal  } from "antd";
 import { FormItem } from "../components";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 //me traigo mis servicios!!! LoginWS SignupWS
 import { loginWs, signupWs } from '../services/auth-ws'
 /**
@@ -11,6 +11,8 @@ import { loginWs, signupWs } from '../services/auth-ws'
 const AuthPage = (props) => {
   //utilizo el hook useLocation
   const location = useLocation()
+  const navigate = useNavigate()
+
   const onFinish = (values) => {
     if(location.pathname === "/signup" && values.password !== values.confirmPassword){
       return Modal.error({content:"hey que paso las contraseñas no coinciden"})
@@ -22,9 +24,10 @@ const AuthPage = (props) => {
     service.then(res=>{
       const {data,status,errorMessage} = res;
       if(status){
-        console.log("data",data)
+       
         props.authentication(data.user)
         Modal.success({content: "Todo chido ya pudiste entrar"})
+        navigate("/profile")
         return;
       }else{
         //pueden guardar el errorMessage en un state para mostrarlo en el html 

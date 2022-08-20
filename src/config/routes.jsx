@@ -1,5 +1,6 @@
 //importar mis pages
-import AuthPage  from '../pages/AuthPage' //import chafa v1
+import {AuthPage,ProfilePage}  from '../pages' //import  v2
+
 const routes = (props)=>{
 
     //<Route path="/" element={componente} />
@@ -15,6 +16,10 @@ const routes = (props)=>{
         {
             path:"/signup",
             element:<AuthPage {...props}/>
+        },
+        {
+            path:"/profile",
+            element:<ProfilePage {...props}/>
         }
     ]
 }

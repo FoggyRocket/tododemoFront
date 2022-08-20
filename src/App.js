@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import "./App.css";
 //importar las rutas a utilizar
 import routes from "./config/routes";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,useNavigate } from "react-router-dom";
 import { Navbar } from "./components";
 import { logoutWs } from "./services/auth-ws";
 import { Modal } from 'antd'
 //importar los componentes o funcion  que sean globales
 function App() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate()
 
   //funciones globales!
   function authentication(user) {
@@ -27,6 +28,7 @@ function App() {
             Modal.success({
               content:data.successMessage,
             });
+            navigate("/")
             setUser(null);
           } else {
             alert(errorMessage);
