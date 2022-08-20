@@ -10,11 +10,11 @@ const routes = (props)=>{
         },
         {
             path:"/login",
-            element:<AuthPage />
+            element:<AuthPage {...props}/>
         },
         {
             path:"/signup",
-            element:<AuthPage />
+            element:<AuthPage {...props}/>
         }
     ]
 }
