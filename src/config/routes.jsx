@@ -1,8 +1,5 @@
 //importar mis pages
 import AuthPage  from '../pages/AuthPage' //import chafa v1
-
-
-
 const routes = (props)=>{
 
     //<Route path="/" element={componente} />
@@ -20,7 +17,6 @@ const routes = (props)=>{
             element:<AuthPage />
         }
     ]
-
 }
 
 export default routes

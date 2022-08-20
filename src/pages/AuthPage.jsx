@@ -1,12 +1,12 @@
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input } from "antd";
 
 const AuthPage = () => {
   const onFinish = (values) => {
-    console.log('Success:', values);
+    console.log("Success:", values);
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -26,12 +26,12 @@ const AuthPage = () => {
       autoComplete="off"
     >
       <Form.Item
-        label="Username"
-        name="username"
+        label="Correo"
+        name="email"
         rules={[
           {
             required: true,
-            message: 'Please input your username!',
+            message: "Please input your username!",
           },
         ]}
       >
@@ -39,27 +39,16 @@ const AuthPage = () => {
       </Form.Item>
 
       <Form.Item
-        label="Password"
+        label="Contraseña"
         name="password"
         rules={[
           {
             required: true,
-            message: 'Please input your password!',
+            message: "Por favor ingresa tu contraseña!",
           },
         ]}
       >
         <Input.Password />
-      </Form.Item>
-
-      <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Checkbox>Remember me</Checkbox>
       </Form.Item>
 
       <Form.Item
